@@ -1,4 +1,4 @@
-import { LayoutGroup, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import barber_image from "../assets/barber.jpg";
 import nails_image from "../assets/nails.jpg";
 import { useEffect, useState } from "react";
@@ -16,7 +16,7 @@ export const TextBookIt = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="py-60 relative overflow-hidden">
+    <div className="py-60 relative ">
       {images.map((img_path, index) => (
         <motion.div
           key={index}
@@ -24,14 +24,15 @@ export const TextBookIt = () => {
           style={{
             backgroundImage: `url(${img_path})`,
             zIndex: index === currentImageIndex ? 1 : 0,
+            backgroundPosition: "20% 20%",
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: index === currentImageIndex ? 0.35 : 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          transition={{ ease: "easeInOut" }}
         />
       ))}
-      <div className="relative z-10 flex items-end gap-1 justify-center">
-        <LayoutGroup>
+      <div className="relative z-10 flex flex-col items-center gap-4 justify-center">
+        <div className="flex items-end gap-1">
           {/* B */}
           <motion.svg
             width="52"
@@ -48,8 +49,8 @@ export const TextBookIt = () => {
               initial={{ pathLength: 0, fillOpacity: 0 }}
               animate={{ pathLength: 1, fillOpacity: 1 }}
               transition={{
-                pathLength: { duration: 2, delay: 0.5 },
-                fillOpacity: { duration: 3, delay: 0.5 },
+                pathLength: { duration: 2 },
+                fillOpacity: { duration: 3 },
               }}
             />
           </motion.svg>
@@ -68,8 +69,8 @@ export const TextBookIt = () => {
               initial={{ pathLength: 0, fillOpacity: 0 }}
               animate={{ pathLength: 1, fillOpacity: 1 }}
               transition={{
-                pathLength: { duration: 2, delay: 0.8 },
-                fillOpacity: { duration: 3, delay: 0.8 },
+                pathLength: { duration: 2, delay: 0.2 },
+                fillOpacity: { duration: 3, delay: 0.2 },
               }}
             />
           </motion.svg>
@@ -88,8 +89,8 @@ export const TextBookIt = () => {
               initial={{ pathLength: 0, fillOpacity: 0 }}
               animate={{ pathLength: 1, fillOpacity: 1 }}
               transition={{
-                pathLength: { duration: 2, delay: 1.2 },
-                fillOpacity: { duration: 3, delay: 1.2 },
+                pathLength: { duration: 2, delay: 0.4 },
+                fillOpacity: { duration: 3, delay: 0.4 },
               }}
             />
           </motion.svg>
@@ -108,8 +109,8 @@ export const TextBookIt = () => {
               initial={{ pathLength: 0, fillOpacity: 0 }}
               animate={{ pathLength: 1, fillOpacity: 1 }}
               transition={{
-                pathLength: { duration: 2, delay: 1.5 },
-                fillOpacity: { duration: 3, delay: 1.5 },
+                pathLength: { duration: 2, delay: 0.6 },
+                fillOpacity: { duration: 3, delay: 0.6 },
               }}
             />
           </motion.svg>
@@ -128,8 +129,8 @@ export const TextBookIt = () => {
               initial={{ pathLength: 0, fillOpacity: 0 }}
               animate={{ pathLength: 1, fillOpacity: 1 }}
               transition={{
-                pathLength: { duration: 2, delay: 1.8 },
-                fillOpacity: { duration: 3, delay: 1.8 },
+                pathLength: { duration: 2, delay: 0.8 },
+                fillOpacity: { duration: 3, delay: 0.8 },
               }}
             />
           </motion.svg>
@@ -148,12 +149,33 @@ export const TextBookIt = () => {
               initial={{ pathLength: 0, fillOpacity: 0 }}
               animate={{ pathLength: 1, fillOpacity: 1 }}
               transition={{
-                pathLength: { duration: 2, delay: 2.1 },
-                fillOpacity: { duration: 3, delay: 2.1 },
+                pathLength: { duration: 2, delay: 1 },
+                fillOpacity: { duration: 3, delay: 1 },
               }}
             />
           </motion.svg>
-        </LayoutGroup>
+        </div>
+        <motion.h2
+          className=" text-3xl"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1.5 }}
+        >
+          Rezerwuj wygodnie
+        </motion.h2>
+        <motion.button
+          className="text-white bg-black p-5 my-5 rounded-xl"
+          whileHover={{ scale: 1.05 }}
+          initial={{ y: 100 }}
+          animate={{ y: 0, rotateZ: [0, 5, 0, -5, 0, 5, 0, -5, 0] }}
+          transition={{
+            delay: 2,
+            rotateZ: { delay: 2.3, duration: 0.3 },
+            scale: { duration: 0.1 },
+          }}
+        >
+          Wyszukaj usługi
+        </motion.button>
       </div>
     </div>
   );
