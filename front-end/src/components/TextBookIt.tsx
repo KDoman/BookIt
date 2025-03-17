@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import barber_image from "../assets/barber.jpg";
 import nails_image from "../assets/nails.jpg";
 import { useEffect, useState } from "react";
+import { AutocompleteInput } from "./AutocompleteInput";
+import { Button } from "@heroui/react";
 
 const images = [barber_image, nails_image];
 
@@ -16,7 +18,7 @@ export const TextBookIt = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="py-60 relative ">
+    <div className="py-60 relative flex justify-center ">
       {images.map((img_path, index) => (
         <motion.div
           key={index}
@@ -24,7 +26,8 @@ export const TextBookIt = () => {
           style={{
             backgroundImage: `url(${img_path})`,
             zIndex: index === currentImageIndex ? 1 : 0,
-            backgroundPosition: "20% 20%",
+            backgroundPosition: "40% 20%",
+            backgroundAttachment: "fixed",
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: index === currentImageIndex ? 0.35 : 0 }}
@@ -163,20 +166,11 @@ export const TextBookIt = () => {
         >
           Rezerwuj wygodnie
         </motion.h2>
-        <motion.button
-          className="text-white bg-black p-5 my-5 rounded-xl"
-          whileHover={{ scale: 1.05 }}
-          initial={{ y: 100 }}
-          animate={{ y: 0, rotateZ: [0, 5, 0, -5, 0, 5, 0, -5, 0] }}
-          transition={{
-            delay: 2,
-            rotateZ: { delay: 2.3, duration: 0.3 },
-            scale: { duration: 0.1 },
-          }}
-        >
-          Wyszukaj usługi
-        </motion.button>
       </div>
+      <motion.div className=" absolute bottom-16 z-20 w-full">
+        <AutocompleteInput />
+        <Button className=" mx-auto mt-8 block">Wyszukaj usługi</Button>
+      </motion.div>
     </div>
   );
 };

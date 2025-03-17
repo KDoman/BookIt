@@ -7,7 +7,7 @@ export const NavHambOpenedMenu = () => {
   return (
     <AnimatePresence mode="wait">
       <NavbarMenu
-        className="bg-blue-100 overflow-hidden h-fit "
+        className="overflow-hidden h-fit bg-white"
         motionProps={{
           variants: {
             exit: {
