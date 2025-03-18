@@ -1,13 +1,12 @@
 import { HeroUIProvider } from "@heroui/react";
-import { NavBar } from "./components/NavBar";
-import { EntryPage } from "./views/EntryPage";
+
+import { Layout } from "./views/Layout";
 
 function App() {
   return (
     <>
       <HeroUIProvider>
-        <NavBar />
-        <EntryPage />
+        <Layout />
       </HeroUIProvider>
     </>
   );

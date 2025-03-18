@@ -18,7 +18,11 @@ export function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white">
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      isMenuOpen={isMenuOpen}
+      className="bg-white"
+    >
       <NavbarContent>
         <NavbarBrand>
           <Logo />
@@ -32,12 +36,12 @@ export function NavBar() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link aria-current="page" to="/">
+          <Link aria-current="page" to="o-nas">
             <NavText>O nas</NavText>
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" to="/">
+          <Link color="foreground" to="contact">
             <NavText>Kontakt</NavText>
           </Link>
         </NavbarItem>
@@ -61,7 +65,7 @@ export function NavBar() {
         className="sm:hidden"
         icon={<NavHambIcon isMenuOpen={isMenuOpen} />}
       />
-      <NavHambOpenedMenu />
+      <NavHambOpenedMenu setIsMenuOpen={setIsMenuOpen} />
     </Navbar>
   );
 }

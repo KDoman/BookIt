@@ -20,6 +20,10 @@ export default {
               DEFAULT: "#1E1E1E",
               foreground: "#FFF",
             },
+            primary: {
+              DEFAULT: "#ffffff",
+              foreground: "#000",
+            },
 
             focus: "#BEF264",
           },

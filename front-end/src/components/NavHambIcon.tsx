@@ -20,7 +20,7 @@ export const NavHambIcon = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
             transition={{ duration: 0.2 }}
             d="M0.646446 45.6464L45.6464 0.646447"
             stroke="black"
-            stroke-linecap="round"
+            strokeLinecap="round"
             strokeWidth="2"
           />
           <motion.path
@@ -30,7 +30,7 @@ export const NavHambIcon = ({ isMenuOpen }: { isMenuOpen: boolean }) => {
             transition={{ duration: 0.2, delay: 0.2 }}
             d="M1.35355 0.646446L46.3536 45.6464"
             stroke="black"
-            stroke-linecap="round"
+            strokeLinecap="round"
             strokeWidth="2"
           />
         </motion.svg>

@@ -27,7 +27,8 @@ export const TextBookIt = () => {
             backgroundImage: `url(${img_path})`,
             zIndex: index === currentImageIndex ? 1 : 0,
             backgroundPosition: "40% 20%",
-            backgroundAttachment: "fixed",
+            backgroundSize: "cover",
+            filter: "grayscale(0.5)",
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: index === currentImageIndex ? 0.35 : 0 }}
@@ -169,7 +170,7 @@ export const TextBookIt = () => {
       </div>
       <motion.div className=" absolute bottom-16 z-20 w-full">
         <AutocompleteInput />
-        <Button className=" mx-auto mt-8 block">Wyszukaj usługi</Button>
+        <Button className=" mx-auto mt-8 block">Szukaj</Button>
       </motion.div>
     </div>
   );
