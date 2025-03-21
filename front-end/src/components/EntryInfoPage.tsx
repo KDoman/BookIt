@@ -15,7 +15,11 @@ export const EntryInfoPage = () => {
           aby umówić wizytę – bez zbędnych formalności i długiego czekania!
         </EntryInfoDiv>
 
-        <EntryInfoDiv h2="Zarezerwuj w kilka sekund" imgUrl={STEP_1}>
+        <EntryInfoDiv
+          h2="Zarezerwuj w kilka sekund"
+          imgUrl={STEP_1}
+          left={true}
+        >
           Wybierz dogodny termin, potwierdź rezerwację i ciesz się profesjonalną
           obsługą. BookIt sprawia, że rezerwowanie usług jest szybkie, proste i
           wygodne!
@@ -35,6 +39,7 @@ export const EntryInfoPage = () => {
           h2="Najlepsi specjaliści w Twojej okolicy"
           imgUrl={STEP_3}
           bgPosition="55%"
+          left={true}
         >
           W BookIt znajdziesz sprawdzonych i doświadczonych specjalistów, którzy
           świadczą usługi na najwyższym poziomie. Wybierz najlepszego fachowca w

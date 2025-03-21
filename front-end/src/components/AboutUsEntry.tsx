@@ -25,7 +25,7 @@ export const AboutUsEntry = () => {
           <motion.svg
             width="234"
             height="113"
-            viewBox="0 0 234 113"
+            viewBox="0 0 240 113"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
