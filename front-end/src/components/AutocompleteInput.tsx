@@ -11,18 +11,18 @@ const services = [
   },
   {
     label: "Fryzjer męski",
-    key: "fryzjer meski",
+    key: "fryzjer_meski",
   },
   {
     label: "Fryzjer damski",
-    key: "fryzjer damski",
+    key: "fryzjer_damski",
   },
   { label: "Brwi", key: "brwi" },
   { label: "Rzęsy", key: "rzesy" },
   { label: "Masaż", key: "masaz" },
   {
     label: "Treningi personalne",
-    key: "treningi personalne",
+    key: "treningi_personalne",
   },
   {
     label: "Fizjoterapia",
@@ -30,15 +30,19 @@ const services = [
   },
   {
     label: "Przychodnia weterynaryjna",
-    key: "przychodnia weterynaryjna",
+    key: "przychodnia_weterynaryjna",
   },
   {
     label: "Salon pielęgnacji psów",
-    key: "salon pielęgnacji psów",
+    key: "salon_pielęgnacji_psów",
   },
 ];
 
-export const AutocompleteInput = () => {
+export const AutocompleteInput = ({
+  setService,
+}: {
+  setService: (arg0: string) => void;
+}) => {
   return (
     <div>
       <Autocomplete
@@ -49,7 +53,12 @@ export const AutocompleteInput = () => {
         defaultItems={services}
       >
         {(service) => (
-          <AutocompleteItem key={service.key}>{service.label}</AutocompleteItem>
+          <AutocompleteItem
+            onPress={() => setService(service.key)}
+            key={service.key}
+          >
+            {service.label}
+          </AutocompleteItem>
         )}
       </Autocomplete>
     </div>

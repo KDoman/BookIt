@@ -6,6 +6,9 @@ import { Layout } from "./views/Layout.tsx";
 import { EntryPage } from "./views/EntryPage.tsx";
 import { AboutUs } from "./views/AboutUs.tsx";
 import { Contact } from "./views/Contact.tsx";
+import { SearchResults } from "./views/SearchResults.tsx";
+import { Provider } from "react-redux";
+import { store } from "./redux/store.ts";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +21,15 @@ const router = createBrowserRouter([
         element: <AboutUs />,
       },
       { path: "contact", element: <Contact /> },
+      { path: "/search/:service", element: <SearchResults /> },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 );

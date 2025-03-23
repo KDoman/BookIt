@@ -4,11 +4,18 @@ import nails_image from "../assets/nails.jpg";
 import { useEffect, useState } from "react";
 import { AutocompleteInput } from "./AutocompleteInput";
 import { Button } from "@heroui/react";
+import { useNavigate } from "react-router-dom";
 
 const images = [barber_image, nails_image];
 
 export const TextBookIt = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [service, setService] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  function onButtonClick() {
+    navigate(service ? `/search/${service}` : "/search/all");
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -169,8 +176,10 @@ export const TextBookIt = () => {
         </motion.h2>
       </div>
       <motion.div className=" absolute bottom-16 z-20 w-full">
-        <AutocompleteInput />
-        <Button className=" mx-auto mt-8 block">Szukaj</Button>
+        <AutocompleteInput setService={setService} />
+        <Button onPress={onButtonClick} className=" mx-auto mt-8 block">
+          Szukaj
+        </Button>
       </motion.div>
     </div>
   );
