@@ -1,11 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import serviceReducer from "./searchSlice";
+import modalReducer from "./slices/modalCardSlice";
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
-    service: serviceReducer,
+    modal: modalReducer,
   },
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export default store;

@@ -46,7 +46,6 @@ export const AutocompleteInput = ({
   return (
     <div>
       <Autocomplete
-        className="max-w-[200px] sm:max-w-[400px] mx-auto block "
         variant="faded"
         labelPlacement="outside"
         label="Wybierz usługę"

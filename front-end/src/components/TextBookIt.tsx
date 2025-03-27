@@ -176,10 +176,12 @@ export const TextBookIt = () => {
         </motion.h2>
       </div>
       <motion.div className=" absolute bottom-16 z-20 w-full">
-        <AutocompleteInput setService={setService} />
-        <Button onPress={onButtonClick} className=" mx-auto mt-8 block">
-          Szukaj
-        </Button>
+        <div className="max-w-[200px] sm:max-w-[400px] mx-auto">
+          <AutocompleteInput setService={setService} />
+          <Button onPress={onButtonClick} className=" mx-auto mt-8 block">
+            Szukaj
+          </Button>
+        </div>
       </motion.div>
     </div>
   );

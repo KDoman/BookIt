@@ -8,7 +8,8 @@ import { AboutUs } from "./views/AboutUs.tsx";
 import { Contact } from "./views/Contact.tsx";
 import { SearchResults } from "./views/SearchResults.tsx";
 import { Provider } from "react-redux";
-import { store } from "./redux/store.ts";
+import store from "./redux/store.ts";
+import { CardModal } from "./components/CardModal.tsx";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,16 @@ const router = createBrowserRouter([
         element: <AboutUs />,
       },
       { path: "contact", element: <Contact /> },
-      { path: "/search/:service", element: <SearchResults /> },
+      {
+        path: "/search/:service",
+        element: <SearchResults />,
+        children: [
+          {
+            path: "/search/:service/:idCard",
+            element: <CardModal />,
+          },
+        ],
+      },
     ],
   },
 ]);
