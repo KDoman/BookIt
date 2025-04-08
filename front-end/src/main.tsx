@@ -25,12 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/search/:service",
         element: <SearchResults />,
-        children: [
-          {
-            path: "/search/:service/:idCard",
-            element: <CardModal />,
-          },
-        ],
+      },
+      {
+        path: "/search/:service/:idCard",
+        element: <CardModal />,
       },
     ],
   },
