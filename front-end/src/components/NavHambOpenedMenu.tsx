@@ -12,10 +12,11 @@ export const NavHambOpenedMenu = ({
     { title: "O nas", path: "o-nas" },
     { title: "Kontakt", path: "contact" },
   ];
+
   return (
     <AnimatePresence mode="wait">
       <NavbarMenu
-        className="overflow-hidden h-fit bg-white"
+        className="overflow-hidden h-fit bg-zinc-100 py-2"
         motionProps={{
           variants: {
             exit: {
@@ -41,7 +42,7 @@ export const NavHambOpenedMenu = ({
         {menuItems.map((item, index) => (
           <motion.li
             key={index}
-            className="py-4"
+            className="py-4 bg-zinc-100 border-b-2"
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -40 }}
