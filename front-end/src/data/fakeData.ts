@@ -6,6 +6,19 @@ export interface fakeData {
   city: string;
   rating: number;
   available_slots: number;
+  phones: string[];
+  services: service[];
+  staff: worker[];
+}
+
+export interface service {
+  type: string;
+  price: number;
+}
+
+export interface worker {
+  name: string;
+  image: string;
 }
 
 export const fakeData: fakeData[] = [
@@ -17,6 +30,25 @@ export const fakeData: fakeData[] = [
     city: "Warszawa",
     rating: 4.8,
     available_slots: 5,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789", "123456789"],
+    staff: [
+      { name: "Magłorzata", image: "imageURL" },
+      { name: "Kacper", image: "imageURL" },
+      { name: "Kacper", image: "imageURL" },
+      { name: "Kacper", image: "imageURL" },
+      { name: "Kacper", image: "imageURL" },
+      { name: "Kacper", image: "imageURL" },
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
   {
     id: "2",
@@ -26,6 +58,19 @@ export const fakeData: fakeData[] = [
     city: "Kraków",
     rating: 4.5,
     available_slots: 3,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789"],
+    staff: [
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
   {
     id: "3",
@@ -35,6 +80,19 @@ export const fakeData: fakeData[] = [
     city: "Wrocław",
     rating: 4.7,
     available_slots: 2,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789"],
+    staff: [
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
   {
     id: "4",
@@ -44,6 +102,19 @@ export const fakeData: fakeData[] = [
     city: "Poznań",
     rating: 4.9,
     available_slots: 4,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789"],
+    staff: [
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
   {
     id: "5",
@@ -53,6 +124,19 @@ export const fakeData: fakeData[] = [
     city: "Łódź",
     rating: 4.6,
     available_slots: 6,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789"],
+    staff: [
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
   {
     id: "6",
@@ -62,6 +146,19 @@ export const fakeData: fakeData[] = [
     city: "Gdańsk",
     rating: 4.7,
     available_slots: 3,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789"],
+    staff: [
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
   {
     id: "7",
@@ -71,6 +168,19 @@ export const fakeData: fakeData[] = [
     city: "Katowice",
     rating: 4.8,
     available_slots: 7,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789"],
+    staff: [
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
   {
     id: "8",
@@ -80,6 +190,19 @@ export const fakeData: fakeData[] = [
     city: "Szczecin",
     rating: 4.9,
     available_slots: 5,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789"],
+    staff: [
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
   {
     id: "9",
@@ -89,6 +212,19 @@ export const fakeData: fakeData[] = [
     city: "Bydgoszcz",
     rating: 4.7,
     available_slots: 3,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789"],
+    staff: [
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
   {
     id: "10",
@@ -98,6 +234,19 @@ export const fakeData: fakeData[] = [
     city: "Lublin",
     rating: 4.6,
     available_slots: 4,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789"],
+    staff: [
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
   {
     id: "11",
@@ -107,5 +256,18 @@ export const fakeData: fakeData[] = [
     city: "Rzeszów",
     rating: 4.8,
     available_slots: 6,
+    services: [
+      { type: "strzyżenie brzytwą", price: 30 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+      { type: "long trim", price: 50 },
+    ],
+    phones: ["123456789"],
+    staff: [
+      { name: "Kacper", image: "imageURL" },
+      { name: "Patryk", image: "imageURL" },
+      { name: "Daria", image: "imageURL" },
+    ],
   },
 ];
