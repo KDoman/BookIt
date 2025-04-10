@@ -1,10 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
 import LEFT_ARROW from "../assets/Left_arrow.svg";
 import { LayoutBox } from "./LayoutBox";
-import { fakeData } from "../data/fakeData";
-import { Avatar, Button } from "@heroui/react";
+import { fakeData, service, worker } from "../data/fakeData";
+import { Avatar, Button, Calendar } from "@heroui/react";
 import { firstLettersUppercase } from "../helpers/firstLettersUppercase";
 import PHONE_SVG from "../assets/phone.svg";
+import SELECT_SVG from "../assets/select.svg";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 export const CardModal = () => {
@@ -16,25 +18,39 @@ export const CardModal = () => {
   const goBack = () => {
     navigate(-1);
   };
+
+  const [selectedPerson, setSelectedPerson] = useState<worker | null>(null);
+  const [selectedService, setSelectedService] = useState<service | null>(null);
+
+  const setPerson = (e: worker) => {
+    setSelectedPerson(e);
+  };
+
+  const setService = (e: service) => {
+    setSelectedService(e);
+  };
+
   return (
     <div className="mb-10">
       <LayoutBox>
-        <div className="px-5 mt-4">
+        <div className="px-5 mt-4 ">
           <img
             src={LEFT_ARROW}
             className="max-w-8 cursor-pointer"
             onClick={goBack}
           />
-          <div className="w-full px-1 mt-5">
-            <h2 className="font-bold text-2xl">{name}</h2>
-            <h3 className="text-md font-bold uppercase">{type}</h3>
-            <div className="flex justify-between">
-              <p>
-                {city}, {street}
-              </p>
-              <p>{rating}</p>
+          <div className="w-full px-1 mt-5 flex flex-col gap-5">
+            <div className="bg-zinc-100 p-2  rounded-lg">
+              <h2 className="font-bold text-2xl">{name}</h2>
+              <h3 className="text-md font-bold uppercase">{type}</h3>
+              <div className="flex justify-between">
+                <p>
+                  {city}, {street}
+                </p>
+                <p>{rating}</p>
+              </div>
             </div>
-            <div className="mt-5 flex gap-4 flex-wrap border-t-1 border-black">
+            <div className="flex gap-4 flex-wrap bg-zinc-100 rounded-lg p-2">
               {phones.map((phone, i) => {
                 return (
                   <div key={i} className="flex gap-1">
@@ -44,35 +60,63 @@ export const CardModal = () => {
                 );
               })}
             </div>
-            <div className="py-5">
-              <p className="pb-2 font-bold border-t-1 border-black">
-                Wybierz osobę:
-              </p>
+            <div className="rounded-lg bg-zinc-100 p-2">
+              <p className="pb-2 font-bold ">Wybierz osobę:</p>
               <div className="flex gap-2 flex-wrap ">
                 {staff.map((person) => {
                   return (
-                    <div className="flex flex-col items-center gap-2 w-24 cursor-pointer  py-3 hover:bg-zinc-200">
+                    <div
+                      className={`flex flex-col items-center gap-2 min-w-24 cursor-pointer pt-4 pb-2 rounded-lg ${
+                        selectedPerson?.id == person.id ? "bg-zinc-200" : null
+                      }`}
+                      onClick={() => setPerson(person)}
+                    >
                       <Avatar isBordered src={person.image} />
                       <p>{person.name}</p>
                     </div>
                   );
                 })}
               </div>
-              <div className="py-10">
-                <p className="font-bold border-t-1 border-black">Usługi:</p>
-                {services.map((service, i) => {
-                  return (
-                    <div
-                      key={service.type + i}
-                      className="flex justify-between items-center border-b-1 border-gray-900 py-2"
-                    >
-                      <p> {firstLettersUppercase(service.type)}</p>
-                      <Button size="sm">{service.price} zł</Button>
-                    </div>
-                  );
-                })}
-              </div>
             </div>
+
+            <div className="p-2 bg-zinc-100 rounded-lg">
+              <p className="font-bold">Usługi:</p>
+              {services.map((service, i) => {
+                return (
+                  <div
+                    key={service.type + i}
+                    className="flex justify-between items-center border-b-1 last-of-type:border-b-0 border-gray-900 py-2"
+                  >
+                    <p> {firstLettersUppercase(service.type)}</p>
+                    <Button
+                      size="sm"
+                      onPress={() => setService(service)}
+                      className={`overflow-hidden max-w-20 `}
+                    >
+                      <motion.div
+                        animate={{
+                          x: selectedService?.id === service.id ? 28 : -33,
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 300,
+                          damping: 20,
+                        }}
+                        className="flex items-center"
+                      >
+                        <img src={SELECT_SVG} className="w-4 mr-10" />
+                        {`${service.price} zł`}
+                      </motion.div>
+                    </Button>
+                  </div>
+                );
+              })}
+            </div>
+            <Calendar
+              color="foreground"
+              className="mx-auto"
+              isDisabled={!selectedPerson && !selectedService}
+            />
           </div>
         </div>
       </LayoutBox>

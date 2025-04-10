@@ -12,11 +12,13 @@ export interface fakeData {
 }
 
 export interface service {
+  id: string;
   type: string;
   price: number;
 }
 
 export interface worker {
+  id: string;
   name: string;
   image: string;
 }
@@ -31,23 +33,15 @@ export const fakeData: fakeData[] = [
     rating: 4.8,
     available_slots: 5,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 120 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789", "123456789"],
     staff: [
-      { name: "Magłorzata", image: "imageURL" },
-      { name: "Kacper", image: "imageURL" },
-      { name: "Kacper", image: "imageURL" },
-      { name: "Kacper", image: "imageURL" },
-      { name: "Kacper", image: "imageURL" },
-      { name: "Kacper", image: "imageURL" },
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Magłorzata", image: "imageURL", id: "malgorzata" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
   {
@@ -59,17 +53,14 @@ export const fakeData: fakeData[] = [
     rating: 4.5,
     available_slots: 3,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 30 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789"],
     staff: [
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
   {
@@ -81,17 +72,14 @@ export const fakeData: fakeData[] = [
     rating: 4.7,
     available_slots: 2,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 30 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789"],
     staff: [
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
   {
@@ -103,17 +91,14 @@ export const fakeData: fakeData[] = [
     rating: 4.9,
     available_slots: 4,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 30 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789"],
     staff: [
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
   {
@@ -125,17 +110,14 @@ export const fakeData: fakeData[] = [
     rating: 4.6,
     available_slots: 6,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 30 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789"],
     staff: [
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
   {
@@ -147,17 +129,14 @@ export const fakeData: fakeData[] = [
     rating: 4.7,
     available_slots: 3,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 30 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789"],
     staff: [
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
   {
@@ -169,17 +148,14 @@ export const fakeData: fakeData[] = [
     rating: 4.8,
     available_slots: 7,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 30 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789"],
     staff: [
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
   {
@@ -191,17 +167,14 @@ export const fakeData: fakeData[] = [
     rating: 4.9,
     available_slots: 5,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 30 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789"],
     staff: [
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
   {
@@ -213,17 +186,14 @@ export const fakeData: fakeData[] = [
     rating: 4.7,
     available_slots: 3,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 30 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789"],
     staff: [
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
   {
@@ -235,17 +205,14 @@ export const fakeData: fakeData[] = [
     rating: 4.6,
     available_slots: 4,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 30 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789"],
     staff: [
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
   {
@@ -257,17 +224,14 @@ export const fakeData: fakeData[] = [
     rating: 4.8,
     available_slots: 6,
     services: [
-      { type: "strzyżenie brzytwą", price: 30 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
-      { type: "long trim", price: 50 },
+      { id: "service1", type: "strzyżenie brzytwą", price: 30 },
+      { id: "service2", type: "long trim", price: 50 },
     ],
     phones: ["123456789"],
     staff: [
-      { name: "Kacper", image: "imageURL" },
-      { name: "Patryk", image: "imageURL" },
-      { name: "Daria", image: "imageURL" },
+      { name: "Kacper", image: "imageURL", id: "kacper" },
+      { name: "Patryk", image: "imageURL", id: "patryk" },
+      { name: "Daria", image: "imageURL", id: "daria" },
     ],
   },
 ];
