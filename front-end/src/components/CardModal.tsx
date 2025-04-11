@@ -34,11 +34,18 @@ export const CardModal = () => {
     <div className="mb-10">
       <LayoutBox>
         <div className="px-5 mt-4 ">
-          <img
-            src={LEFT_ARROW}
-            className="max-w-8 cursor-pointer"
+          <div
+            className="w-10 h-10 bg-zinc-100  cursor-pointer overflow-hidden"
             onClick={goBack}
-          />
+          >
+            <motion.div
+              className="flex items-center"
+              whileHover={{ translateX: -7 }}
+            >
+              <img src={LEFT_ARROW} className="p-2" />
+              <div className="w-5 h-5 p-5"></div>
+            </motion.div>
+          </div>
           <div className="w-full px-1 mt-5 flex flex-col gap-5">
             <div className="bg-zinc-100 p-2  rounded-lg">
               <h2 className="font-bold text-2xl">{name}</h2>
@@ -66,7 +73,7 @@ export const CardModal = () => {
                 {staff.map((person) => {
                   return (
                     <div
-                      className={`flex flex-col items-center gap-2 min-w-24 cursor-pointer pt-4 pb-2 rounded-lg ${
+                      className={`flex flex-col hover:bg-zinc-200 transition-colors items-center gap-2 min-w-24 cursor-pointer pt-4 pb-2 rounded-lg ${
                         selectedPerson?.id == person.id ? "bg-zinc-200" : null
                       }`}
                       onClick={() => setPerson(person)}
@@ -95,8 +102,9 @@ export const CardModal = () => {
                     >
                       <motion.div
                         animate={{
-                          x: selectedService?.id === service.id ? 28 : -33,
+                          x: selectedService?.id === service.id ? 63 : 0,
                         }}
+                        style={{ translateX: -35 }}
                         transition={{
                           type: "spring",
                           stiffness: 300,
@@ -115,7 +123,7 @@ export const CardModal = () => {
             <Calendar
               color="foreground"
               className="mx-auto"
-              isDisabled={!selectedPerson && !selectedService}
+              isDisabled={!selectedPerson || !selectedService}
             />
           </div>
         </div>

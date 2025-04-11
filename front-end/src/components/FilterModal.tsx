@@ -16,7 +16,7 @@ export default function FilterModal() {
 
   return (
     <>
-      <div className="flex gap-4">
+      <div className="flex gap-4 relative">
         <Button className="flex-1" onPress={onOpen}>
           Ustaw Filtr
         </Button>
@@ -25,9 +25,9 @@ export default function FilterModal() {
       <Modal
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        className="max-h-screen overflow-scroll"
+        className="overflow-scroll"
       >
-        <ModalContent className="h-[400px] overflow-scroll">
+        <ModalContent className="h-fit overflow-scroll">
           {(onClose) => (
             <>
               <ModalHeader className="flex flex-col gap-1">Filtry</ModalHeader>

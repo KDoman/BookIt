@@ -8,10 +8,10 @@ export const ServiceCard = ({ id, data }: { id: string; data: fakeData }) => {
 
   return (
     <div
-      className="relative"
+      className="relative sm:max-w-[48%]"
       onClick={() => navigate(`/search/${service}/${id}`)}
     >
-      <Card className=" w-full shadow-none border-2 cursor-pointer">
+      <Card className=" w-full shadow-none border-2 cursor-pointer ">
         <CardHeader className=" px-4 flex-col items-start">
           <h4 className="font-bold text-large">{data.name} </h4>
           <p className="text-tiny uppercase font-bold">{data.type}</p>

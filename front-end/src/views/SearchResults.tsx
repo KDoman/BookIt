@@ -8,12 +8,14 @@ export const SearchResults = () => {
   return (
     <LayoutBox>
       <>
-        <div className="flex flex-col sm:flex-row gap-2 py-2 mx-5">
+        <div className="flex flex-col gap-2 py-2 mx-5">
           <AutocompleteInput setService={(e) => console.log(e)} />
           <FilterModal />
-          {fakeData.map((data) => (
-            <ServiceCard key={data.id} id={data.id} data={data} />
-          ))}
+          <div className="flex flex-wrap gap-5 justify-center">
+            {fakeData.map((data) => (
+              <ServiceCard key={data.id} id={data.id} data={data} />
+            ))}
+          </div>
         </div>
       </>
     </LayoutBox>
