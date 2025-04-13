@@ -66,7 +66,7 @@ export const fakeData: fakeData[] = [
   {
     id: "3",
     name: "Strzyżenie Męskie Pro",
-    type: "fryzjer_meski",
+    type: "fryzjer męski",
     street: "Barberska 7",
     city: "Wrocław",
     rating: 4.7,
@@ -85,7 +85,7 @@ export const fakeData: fakeData[] = [
   {
     id: "4",
     name: "Salon Fryzjerski Glamour",
-    type: "fryzjer_damski",
+    type: "fryzjer damski",
     street: "Modna 15",
     city: "Poznań",
     rating: 4.9,
@@ -123,7 +123,7 @@ export const fakeData: fakeData[] = [
   {
     id: "6",
     name: "Rzęsy Perfect Look",
-    type: "rzesy",
+    type: "rzęsy",
     street: "Stylowa 22",
     city: "Gdańsk",
     rating: 4.7,
@@ -142,7 +142,7 @@ export const fakeData: fakeData[] = [
   {
     id: "7",
     name: "Masaże Relaksacyjne",
-    type: "masaz",
+    type: "masaż",
     street: "Zdrowa 8",
     city: "Katowice",
     rating: 4.8,
@@ -161,7 +161,7 @@ export const fakeData: fakeData[] = [
   {
     id: "8",
     name: "Treningi Personalne FitPro",
-    type: "treningi_personalne",
+    type: "treningi personalne",
     street: "Sportowa 30",
     city: "Szczecin",
     rating: 4.9,
@@ -199,7 +199,7 @@ export const fakeData: fakeData[] = [
   {
     id: "10",
     name: "VetCare - Przychodnia Weterynaryjna",
-    type: "przychodnia_weterynaryjna",
+    type: "przychodnia weterynaryjna",
     street: "Zwierzęca 18",
     city: "Lublin",
     rating: 4.6,
@@ -218,7 +218,7 @@ export const fakeData: fakeData[] = [
   {
     id: "11",
     name: "DogSpa - Pielęgnacja Psów",
-    type: "salon_pielęgnacji_psów",
+    type: "salon pielęgnacji psów",
     street: "Psiarska 12",
     city: "Rzeszów",
     rating: 4.8,

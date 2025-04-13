@@ -11,7 +11,7 @@ import {
   Calendar,
 } from "@heroui/react";
 
-export default function FilterModal() {
+export default function FilterModal({ setFilteredArray }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -20,7 +20,9 @@ export default function FilterModal() {
         <Button className="flex-1" onPress={onOpen}>
           Ustaw Filtr
         </Button>
-        <Button className="flex-1">Szukaj</Button>
+        <Button className="flex-1" onPress={setFilteredArray}>
+          Szukaj
+        </Button>
       </div>
       <Modal
         isOpen={isOpen}

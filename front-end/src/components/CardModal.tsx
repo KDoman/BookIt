@@ -8,6 +8,7 @@ import PHONE_SVG from "../assets/phone.svg";
 import SELECT_SVG from "../assets/select.svg";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { getCurrentDate } from "../helpers/getCurrentDate";
 
 export const CardModal = () => {
   const { idCard } = useParams();
@@ -124,7 +125,10 @@ export const CardModal = () => {
               color="foreground"
               className="mx-auto"
               isDisabled={!selectedPerson || !selectedService}
+              onChange={(e) => console.log(`${e.year} / ${e.month} / ${e.day}`)}
+              minValue={getCurrentDate()}
             />
+            <Button className="mx-auto block min-w-full">Zarezerwuj</Button>
           </div>
         </div>
       </LayoutBox>

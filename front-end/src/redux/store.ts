@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import modalReducer from "./slices/modalCardSlice";
+import inputValueReducer from "../redux/slices/inputValueSlice";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    modal: modalReducer,
+    inputValue: inputValueReducer,
   },
 });
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

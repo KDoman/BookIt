@@ -5,12 +5,14 @@ import { useEffect, useState } from "react";
 import { AutocompleteInput } from "./AutocompleteInput";
 import { Button } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 
 const images = [barber_image, nails_image];
 
 export const TextBookIt = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [service, setService] = useState<string | null>(null);
+  const service = useSelector((state: RootState) => state.inputValue.value);
   const navigate = useNavigate();
 
   function onButtonClick() {
@@ -177,7 +179,7 @@ export const TextBookIt = () => {
       </div>
       <motion.div className=" absolute bottom-16 z-20 w-full">
         <div className="max-w-[200px] sm:max-w-[400px] mx-auto">
-          <AutocompleteInput setService={setService} />
+          <AutocompleteInput />
           <Button onPress={onButtonClick} className=" mx-auto mt-8 block">
             Szukaj
           </Button>
