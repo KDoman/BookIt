@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { LayoutBox } from "./LayoutBox";
-import CONTACT_US_IMG from "../assets/contact_us.jpg";
+import CONTACT_US_IMG from "../assets/contact_us.avif";
 
 export const ContactEntry = () => {
   const paths = [

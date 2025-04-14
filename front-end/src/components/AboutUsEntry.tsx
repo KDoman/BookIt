@@ -1,4 +1,4 @@
-import ABOUT_US_IMG from "../assets/about_us.jpg";
+import ABOUT_US_IMG from "../assets/about_us.avif";
 import { LayoutBox } from "./LayoutBox";
 import { motion } from "framer-motion";
 

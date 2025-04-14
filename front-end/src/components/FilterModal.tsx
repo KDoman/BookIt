@@ -10,6 +10,7 @@ import {
   TimeInput,
   Calendar,
 } from "@heroui/react";
+import { getCurrentDate } from "../helpers/getCurrentDate";
 
 export default function FilterModal({ setFilteredArray }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -45,6 +46,7 @@ export default function FilterModal({ setFilteredArray }) {
                   aria-label="Date (No Selection)"
                   className="mx-auto"
                   color="foreground"
+                  minValue={getCurrentDate()}
                 />
               </ModalBody>
               <ModalFooter className="sticky bottom-0 w-full bg-white">

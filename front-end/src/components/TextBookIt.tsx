@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import barber_image from "../assets/barber.jpg";
-import nails_image from "../assets/nails.jpg";
+import barber_image from "../assets/barber.avif";
+import nails_image from "../assets/nails.avif";
 import { useEffect, useState } from "react";
 import { AutocompleteInput } from "./AutocompleteInput";
 import { Button } from "@heroui/react";

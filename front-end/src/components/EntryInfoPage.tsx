@@ -1,9 +1,9 @@
 import { Button } from "@heroui/react";
 import { EntryInfoDiv } from "./EntryInfoDiv";
-import STEP_0 from "../assets/step_0_intro.jpg";
-import STEP_1 from "../assets/step_1_booking.jpg";
-import STEP_2 from "../assets/step_2_cancel.jpg";
-import STEP_3 from "../assets/step_3_specialist.jpg";
+import STEP_0 from "../assets/step_0_intro.avif";
+import STEP_1 from "../assets/step_1_booking.avif";
+import STEP_2 from "../assets/step_2_cancel.avif";
+import STEP_3 from "../assets/step_3_specialist.avif";
 
 export const EntryInfoPage = () => {
   return (
