@@ -11,8 +11,19 @@ import {
   Calendar,
 } from "@heroui/react";
 import { getCurrentDate } from "../helpers/getCurrentDate";
+import { useDispatch, useSelector } from "react-redux";
+import { SearchFilter, setCityFilter } from "../redux/slices/searchFilterSlice";
+import { RootState } from "../redux/store";
 
-export default function FilterModal({ setFilteredArray }) {
+export default function FilterModal({
+  setFilteredArray,
+}: {
+  setFilteredArray: () => void;
+}) {
+  const dispatch = useDispatch();
+  const searchFilter: SearchFilter = useSelector(
+    (state: RootState) => state.searchFilter
+  );
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -35,7 +46,13 @@ export default function FilterModal({ setFilteredArray }) {
             <>
               <ModalHeader className="flex flex-col gap-1">Filtry</ModalHeader>
               <ModalBody>
-                <Input variant="faded" label="Miasto" labelPlacement="inside" />
+                <Input
+                  variant="faded"
+                  label="Miasto"
+                  labelPlacement="inside"
+                  defaultValue={searchFilter.city}
+                  onChange={(e) => dispatch(setCityFilter(e.target.value))}
+                />
                 <TimeInput
                   granularity="minute"
                   hourCycle={24}
