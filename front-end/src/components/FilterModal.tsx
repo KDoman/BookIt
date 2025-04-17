@@ -7,13 +7,17 @@ import {
   Button,
   useDisclosure,
   Input,
-  TimeInput,
   Calendar,
 } from "@heroui/react";
 import { getCurrentDate } from "../helpers/getCurrentDate";
 import { useDispatch, useSelector } from "react-redux";
-import { SearchFilter, setCityFilter } from "../redux/slices/searchFilterSlice";
+import {
+  SearchFilter,
+  setCityFilter,
+  setDateFilter,
+} from "../redux/slices/searchFilterSlice";
 import { RootState } from "../redux/store";
+import { parseDate } from "@internationalized/date";
 
 export default function FilterModal({
   setFilteredArray,
@@ -25,6 +29,11 @@ export default function FilterModal({
     (state: RootState) => state.searchFilter
   );
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  const setFiltersOnClick = () => {
+    setFilteredArray();
+    onOpenChange();
+  };
 
   return (
     <>
@@ -53,24 +62,33 @@ export default function FilterModal({
                   defaultValue={searchFilter.city}
                   onChange={(e) => dispatch(setCityFilter(e.target.value))}
                 />
-                <TimeInput
-                  granularity="minute"
-                  hourCycle={24}
-                  label="Ustaw czas"
-                  variant="faded"
-                />
+
                 <Calendar
                   aria-label="Date (No Selection)"
                   className="mx-auto"
                   color="foreground"
                   minValue={getCurrentDate()}
+                  onChange={(e) =>
+                    dispatch(
+                      setDateFilter(
+                        String(
+                          `${e.year}-${
+                            e.month < 10 ? `0${e.month}` : e.month
+                          }-${e.day}`
+                        )
+                      )
+                    )
+                  }
+                  defaultValue={
+                    searchFilter.date ? parseDate(searchFilter.date) : undefined
+                  }
                 />
               </ModalBody>
               <ModalFooter className="sticky bottom-0 w-full bg-white">
                 <Button variant="bordered" onPress={onClose}>
                   Zamknij
                 </Button>
-                <Button onPress={onClose}>Szukaj</Button>
+                <Button onPress={setFiltersOnClick}>Ustaw</Button>
               </ModalFooter>
             </>
           )}

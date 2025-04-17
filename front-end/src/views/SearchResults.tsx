@@ -6,17 +6,16 @@ import { ServiceCard } from "../components/ServiceCard.js";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store.js";
 import { useEffect, useState } from "react";
-import { SearchFilter } from "../redux/slices/searchFilterSlice.js";
 
 export const SearchResults = () => {
   const [filteredArray, setFilteredArray] = useState(fakeData);
 
-  const searchFilter: SearchFilter = useSelector(
-    (state: RootState) => state.searchFilter
-  );
-
   const inputValue = useSelector((state: RootState) => {
     return state.inputValue.value;
+  });
+
+  const searchFilter = useSelector((state: RootState) => {
+    return state.searchFilter;
   });
 
   useEffect(() => {
@@ -28,7 +27,11 @@ export const SearchResults = () => {
 
   const handleFilterClick = () => {
     const filtered = fakeData.filter((item) => item.type === inputValue);
-    setFilteredArray(filtered);
+    const filterByCity =
+      searchFilter.city || searchFilter.date
+        ? filtered.filter((service) => service.city === searchFilter.city)
+        : filtered;
+    setFilteredArray(filterByCity);
   };
 
   return (
