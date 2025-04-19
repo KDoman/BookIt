@@ -5,31 +5,18 @@ import {
   NavbarMenuToggle,
   NavbarItem,
 } from "@heroui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavHambOpenedMenu } from "./NavHambOpenedMenu";
 import { NavHambIcon } from "./NavHambIcon";
 import { Link } from "react-router-dom";
-import RIGHT_ARROW from "../assets/Right_arrow.svg";
-import { motion } from "framer-motion";
 import { Logo } from "./Logo";
 import { NavText } from "./NavText";
+import { NavBarUserIsNotLoggedIn } from "./NavBarUserIsNotLoggedIn";
+import { NavBarUserIsLoggedIn } from "./NavBarUserIsLoggedIn";
 
 export function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-
-  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(true);
 
   return (
     <Navbar
@@ -61,29 +48,8 @@ export function NavBar() {
         </NavbarItem>
       </NavbarContent>
 
-      {windowSize > 639 ? (
-        <NavbarContent justify="end">
-          <div
-            className="cursor-pointer relative w-32 overflow-hidden"
-            onClick={() => console.log("clicked")}
-            aria-label="button"
-          >
-            <motion.div whileHover={{ translateX: 15 }} className="flex">
-              <img
-                src={RIGHT_ARROW}
-                className="max-w-[15px] -translate-x-4 hidden sm:inline-block "
-              />
-              <p className="font-bold sm:-translate-x-2 translate-x-10">
-                Zaloguj się
-              </p>
-            </motion.div>
-          </div>
-        </NavbarContent>
-      ) : (
-        <button onClick={() => console.log("clicked")} className="font-bold ">
-          Zaloguj się
-        </button>
-      )}
+      {isUserLoggedIn ? <NavBarUserIsLoggedIn /> : <NavBarUserIsNotLoggedIn />}
+
       <NavbarMenuToggle
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         className="sm:hidden"

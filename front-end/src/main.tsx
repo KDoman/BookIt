@@ -10,6 +10,9 @@ import { SearchResults } from "./views/SearchResults.tsx";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
 import { CardModal } from "./components/CardModal.tsx";
+import { Login } from "./views/Login.tsx";
+import { Register } from "./views/Register.tsx";
+import { AccountSettings } from "./views/AccountSettings.tsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +32,18 @@ const router = createBrowserRouter([
       {
         path: "/search/:service/:idCard",
         element: <CardModal />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "account",
+        element: <AccountSettings />,
       },
     ],
   },
