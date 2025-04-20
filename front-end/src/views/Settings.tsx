@@ -15,8 +15,8 @@ export const Settings = () => {
 
   return (
     <LayoutBox>
-      <div className="px-6">
-        <div className="h-12 border-t-1 border-b-1 mb-7 border-gray-300 flex items-center gap-4">
+      <div className="px-6 lg:p-0">
+        <div className="h-12 border-t-1 border-b-1 mb-5 border-gray-300 flex items-center gap-4">
           {tabs.map((tab) => {
             return (
               <Link

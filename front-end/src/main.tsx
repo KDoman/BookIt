@@ -1,7 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+  useNavigate,
+} from "react-router-dom";
 import { Layout } from "./views/Layout.tsx";
 import { EntryPage } from "./views/EntryPage.tsx";
 import { AboutUs } from "./views/AboutUs.tsx";
@@ -48,7 +53,6 @@ const router = createBrowserRouter([
       {
         path: "account",
         element: <Settings />,
-
         children: [
           {
             path: "/account/settings",
