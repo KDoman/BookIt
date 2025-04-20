@@ -12,7 +12,11 @@ import { store } from "./redux/store.ts";
 import { CardModal } from "./components/CardModal.tsx";
 import { Login } from "./views/Login.tsx";
 import { Register } from "./views/Register.tsx";
+
+import { Settings } from "./views/Settings.tsx";
 import { AccountSettings } from "./views/AccountSettings.tsx";
+import { HistorySettings } from "./views/HistorySettings.tsx";
+import { VisitSettings } from "./views/VisitSettings.tsx";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +47,22 @@ const router = createBrowserRouter([
       },
       {
         path: "account",
-        element: <AccountSettings />,
+        element: <Settings />,
+
+        children: [
+          {
+            path: "/account/settings",
+            element: <AccountSettings />,
+          },
+          {
+            path: "/account/history",
+            element: <HistorySettings />,
+          },
+          {
+            path: "/account/visits",
+            element: <VisitSettings />,
+          },
+        ],
       },
     ],
   },

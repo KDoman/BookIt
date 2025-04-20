@@ -14,9 +14,9 @@ import { NavText } from "./NavText";
 import { NavBarUserIsNotLoggedIn } from "./NavBarUserIsNotLoggedIn";
 import { NavBarUserIsLoggedIn } from "./NavBarUserIsLoggedIn";
 
-export function NavBar() {
+export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(true);
+  const isUserLoggedIn = useState<boolean>(true);
 
   return (
     <Navbar
@@ -58,4 +58,4 @@ export function NavBar() {
       <NavHambOpenedMenu setIsMenuOpen={setIsMenuOpen} />
     </Navbar>
   );
-}
+};
