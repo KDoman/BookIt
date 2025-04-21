@@ -3,9 +3,8 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import {
   createBrowserRouter,
-  redirect,
+  Navigate,
   RouterProvider,
-  useNavigate,
 } from "react-router-dom";
 import { Layout } from "./views/Layout.tsx";
 import { EntryPage } from "./views/EntryPage.tsx";
@@ -55,15 +54,19 @@ const router = createBrowserRouter([
         element: <Settings />,
         children: [
           {
-            path: "/account/settings",
+            index: true,
+            element: <Navigate to="/account/settings" replace />,
+          },
+          {
+            path: "settings",
             element: <AccountSettings />,
           },
           {
-            path: "/account/history",
+            path: "history",
             element: <HistorySettings />,
           },
           {
-            path: "/account/visits",
+            path: "visits",
             element: <VisitSettings />,
           },
         ],

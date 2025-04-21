@@ -1,6 +1,5 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { LayoutBox } from "../components/LayoutBox";
-import { useState } from "react";
 
 const tabs = [
   { name: "Konto", path: "/account/settings" },
@@ -10,8 +9,6 @@ const tabs = [
 
 export const Settings = () => {
   const location = useLocation();
-
-  const [activeTab, setActiveTab] = useState<null | string>(null);
 
   return (
     <LayoutBox>
@@ -23,9 +20,8 @@ export const Settings = () => {
                 key={tab.name}
                 to={tab.path}
                 className={`${
-                  location.pathname === activeTab ? "font-semibold" : ""
+                  location.pathname === tab.path ? "font-semibold" : ""
                 } cursor-pointer py-0.5`}
-                onClick={() => setActiveTab(tab.path)}
               >
                 {tab.name}
               </Link>
