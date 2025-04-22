@@ -17,11 +17,11 @@ const searchFilterSlice = createSlice({
   name: "searchFilter",
   initialState,
   reducers: {
-    setCityFilter(state, action: PayloadAction<string>) {
+    setCityFilter(state, action: PayloadAction<SearchFilterType>) {
       state.city = action.payload;
     },
 
-    setDateFilter(state, action: PayloadAction<string>) {
+    setDateFilter(state, action: PayloadAction<SearchFilterType>) {
       state.date = action.payload;
     },
   },

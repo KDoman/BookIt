@@ -1,4 +1,4 @@
-export interface fakeData {
+export interface servicesFakeData {
   id: string;
   name: string;
   type: string;
@@ -23,7 +23,7 @@ export interface worker {
   image: string;
 }
 
-export const fakeData: fakeData[] = [
+export const servicesFakeData: servicesFakeData[] = [
   {
     id: "1",
     name: "Luxury Spa & Wellness",

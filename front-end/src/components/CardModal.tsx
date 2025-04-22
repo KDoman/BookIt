@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import LEFT_ARROW from "../assets/Left_arrow.svg";
 import { LayoutBox } from "./LayoutBox";
-import { fakeData, service, worker } from "../data/fakeData";
+import { servicesFakeData, service, worker } from "../data/servicesFakeData";
 import { Avatar, Button, Calendar } from "@heroui/react";
 import { firstLettersUppercase } from "../helpers/firstLettersUppercase";
 import PHONE_SVG from "../assets/phone.svg";
@@ -14,7 +14,7 @@ export const CardModal = () => {
   const { idCard } = useParams();
   const navigate = useNavigate();
   const { city, name, rating, street, type, services, staff, phones } =
-    fakeData[Number(idCard) - 1];
+    servicesFakeData[Number(idCard) - 1];
 
   const goBack = () => {
     navigate(-1);

@@ -35,6 +35,13 @@ export default function FilterModal({
     onOpenChange();
   };
 
+  const clearFilters = () => {
+    dispatch(setCityFilter(undefined));
+    dispatch(setDateFilter(undefined));
+    setFiltersOnClick();
+    onOpenChange();
+  };
+
   return (
     <>
       <div className="flex gap-4 relative">
@@ -51,7 +58,7 @@ export default function FilterModal({
         className="overflow-scroll"
       >
         <ModalContent className="h-fit overflow-scroll">
-          {(onClose) => (
+          {() => (
             <>
               <ModalHeader className="flex flex-col gap-1">Filtry</ModalHeader>
               <ModalBody>
@@ -85,8 +92,8 @@ export default function FilterModal({
                 />
               </ModalBody>
               <ModalFooter className="sticky bottom-0 w-full bg-white">
-                <Button variant="bordered" onPress={onClose}>
-                  Zamknij
+                <Button variant="bordered" onPress={clearFilters}>
+                  Wyczyść filtry
                 </Button>
                 <Button onPress={setFiltersOnClick}>Ustaw</Button>
               </ModalFooter>

@@ -1,8 +1,14 @@
 import { Card, CardHeader, CardBody, Image } from "@heroui/react";
 import { useNavigate, useParams } from "react-router-dom";
-import { fakeData } from "../data/fakeData";
+import { servicesFakeData } from "../data/servicesFakeData";
 
-export const ServiceCard = ({ id, data }: { id: string; data: fakeData }) => {
+export const ServiceCard = ({
+  id,
+  data,
+}: {
+  id: string;
+  data: servicesFakeData;
+}) => {
   const navigate = useNavigate();
   const { service } = useParams();
 

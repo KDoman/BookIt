@@ -1,14 +1,14 @@
 import { LayoutBox } from "../components/LayoutBox";
 import { AutocompleteInput } from "../components/AutocompleteInput";
 import FilterModal from "../components/FilterModal";
-import { fakeData } from "../data/fakeData.js";
+import { servicesFakeData } from "../data/servicesFakeData.js";
 import { ServiceCard } from "../components/ServiceCard.js";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store.js";
 import { useEffect, useState } from "react";
 
 export const SearchResults = () => {
-  const [filteredArray, setFilteredArray] = useState(fakeData);
+  const [filteredArray, setFilteredArray] = useState(servicesFakeData);
 
   const inputValue = useSelector((state: RootState) => {
     return state.inputValue.value;
@@ -19,14 +19,18 @@ export const SearchResults = () => {
   });
 
   useEffect(() => {
-    const filterArray = fakeData.filter((data) => data.type === inputValue);
+    const filterArray = servicesFakeData.filter(
+      (data) => data.type === inputValue
+    );
     if (inputValue) {
       setFilteredArray(filterArray);
     }
   }, []);
 
   const handleFilterClick = () => {
-    const filtered = fakeData.filter((item) => item.type === inputValue);
+    const filtered = servicesFakeData.filter(
+      (item) => item.type === inputValue
+    );
     const filterByCity =
       searchFilter.city || searchFilter.date
         ? filtered.filter((service) => service.city === searchFilter.city)
