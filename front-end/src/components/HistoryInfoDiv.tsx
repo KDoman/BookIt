@@ -34,7 +34,7 @@ export const HistoryInfoDiv = () => {
                       {visit.price + "zł"}
                     </p>
                   </div>
-                  {!visit.rating.message ? (
+                  {!visit.rating?.message ? (
                     <Button>Oceń usługę</Button>
                   ) : (
                     <ReviewMessageModal

@@ -4,9 +4,13 @@ interface FutureOrPastVisits {
   serviceType: string;
   date: string;
   price: number;
-  rating: {
+  rating?: {
     rate: number;
     message: string;
+  };
+  address: {
+    city: string;
+    street: string;
   };
 }
 
@@ -38,6 +42,10 @@ export const accountFakeData: servicesFakeData[] = [
           rate: 0,
           message: "",
         },
+        address: {
+          city: "Warszawa",
+          street: "Górczewska 200",
+        },
       },
       {
         id: "visit2",
@@ -49,6 +57,10 @@ export const accountFakeData: servicesFakeData[] = [
           rate: 4,
           message: "Miło, ale mogłoby być bardziej dokładnie.",
         },
+        address: {
+          city: "Warszawa",
+          street: "Błękitna 20A",
+        },
       },
     ],
     futureVisits: [
@@ -58,9 +70,9 @@ export const accountFakeData: servicesFakeData[] = [
         serviceType: "Beauty",
         date: "2025-05-10",
         price: 120,
-        rating: {
-          rate: 0,
-          message: "",
+        address: {
+          city: "Warszawa",
+          street: "Górczewska 200",
         },
       },
     ],
