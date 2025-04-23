@@ -16,7 +16,7 @@ import { NavBarUserIsLoggedIn } from "./NavBarUserIsLoggedIn";
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const isUserLoggedIn = useState<boolean>(true);
+  const isUserLoggedIn: boolean = false;
 
   return (
     <Navbar
