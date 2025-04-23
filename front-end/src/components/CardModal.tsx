@@ -5,7 +5,7 @@ import { servicesFakeData, service, worker } from "../data/servicesFakeData";
 import { Avatar, Button, Calendar } from "@heroui/react";
 import { firstLettersUppercase } from "../helpers/firstLettersUppercase";
 import PHONE_SVG from "../assets/phone.svg";
-import SELECT_SVG from "../assets/select.svg";
+import SELECT_SVG from "../assets/Select.svg";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { getCurrentDate } from "../helpers/getCurrentDate";
