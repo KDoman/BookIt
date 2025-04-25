@@ -1,7 +1,12 @@
 import { useCallback } from "react";
 import { Link, useLocation } from "react-router";
 
-import { CalenderIcon, HorizontaLDots, UserCircleIcon } from "../icons";
+import {
+  CalenderIcon,
+  HorizontaLDots,
+  UserCircleIcon,
+  WorkersIcon,
+} from "../icons";
 import { useSidebar } from "../context/SidebarContext";
 
 type NavItem = {
@@ -33,7 +38,7 @@ const navItems: NavItem[] = [
     path: "/services_settings",
   },
   {
-    icon: <CalenderIcon />,
+    icon: <WorkersIcon />,
     name: "Pracownicy",
     path: "/services_settings",
   },
