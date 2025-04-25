@@ -9,7 +9,7 @@ export const EntryInfoPage = () => {
   return (
     <>
       <div id="container" className=" flex flex-col gap-10 mt-10 p-4">
-        <EntryInfoDiv h2="Rezerwuj wygodnie z BookIt!" imgUrl={STEP_0}>
+        <EntryInfoDiv h2="Rezerwuj wygodnie z Bookit!" imgUrl={STEP_0}>
           BookIt to intuicyjny portal, który pomoże Ci szybko i bezproblemowo
           znaleźć oraz zarezerwować potrzebną usługę. Wystarczy kilka kliknięć,
           aby umówić wizytę – bez zbędnych formalności i długiego czekania!

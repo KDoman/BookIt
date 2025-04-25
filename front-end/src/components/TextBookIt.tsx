@@ -135,7 +135,7 @@ export const TextBookIt = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <motion.path
-              d="M0.63775 69V0.839996H7.35775V69H0.63775Z"
+              d="M0.342731 71V20.984H6.87073V71H0.342731ZM0.342731 10.52V0.919998H6.87073V10.52H0.342731Z"
               fill="black"
               stroke="black"
               strokeWidth="0.5"
