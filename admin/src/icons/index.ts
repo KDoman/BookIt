@@ -53,8 +53,13 @@ import { ReactComponent as MoreDotIcon } from "./moredot.svg?react";
 import { ReactComponent as AlertHexaIcon } from "./alert-hexa.svg?react";
 import { ReactComponent as ErrorHexaIcon } from "./info-hexa.svg?react";
 import { ReactComponent as WorkersIcon } from "./workers.svg?react";
+import { ReactComponent as StatisticsIcon } from "./statistics.svg?react";
+import { ReactComponent as BookingIcon } from "./booking.svg?react";
+import { ReactComponent as ServicesIcon } from "./services.svg?react";
 
 export {
+  ServicesIcon,
+  BookingIcon,
   ErrorHexaIcon,
   AlertHexaIcon,
   MoreDotIcon,
@@ -110,4 +115,5 @@ export {
   ChevronUpIcon,
   ChatIcon,
   WorkersIcon,
+  StatisticsIcon,
 };

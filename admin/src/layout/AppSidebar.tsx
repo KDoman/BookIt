@@ -2,8 +2,11 @@ import { useCallback } from "react";
 import { Link, useLocation } from "react-router";
 
 import {
+  BookingIcon,
   CalenderIcon,
   HorizontaLDots,
+  ServicesIcon,
+  StatisticsIcon,
   UserCircleIcon,
   WorkersIcon,
 } from "../icons";
@@ -28,24 +31,24 @@ const navItems: NavItem[] = [
     path: "/calendar",
   },
   {
-    icon: <CalenderIcon />,
+    icon: <BookingIcon />,
     name: "Rezerwacje",
-    path: "/services_settings",
+    path: "/booking",
   },
   {
-    icon: <CalenderIcon />,
+    icon: <ServicesIcon />,
     name: "Usługi",
-    path: "/services_settings",
+    path: "/services",
   },
   {
     icon: <WorkersIcon />,
     name: "Pracownicy",
-    path: "/services_settings",
+    path: "/workers",
   },
   {
-    icon: <CalenderIcon />,
+    icon: <StatisticsIcon />,
     name: "Statystyki",
-    path: "/services_settings",
+    path: "/statistics",
   },
 ];
 
