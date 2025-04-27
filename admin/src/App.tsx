@@ -4,12 +4,11 @@ import SignUp from "./pages/AuthPages/SignUp";
 import NotFound from "./pages/OtherPage/NotFound";
 import UserProfiles from "./pages/UserProfiles";
 import Calendar from "./pages/Calendar";
-import BasicTables from "./pages/Tables/BasicTables";
-import FormElements from "./pages/Forms/FormElements";
 import Blank from "./pages/Blank";
 import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
+import Booking from "./pages/Booking";
 
 export default function App() {
   return (
@@ -24,7 +23,7 @@ export default function App() {
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/calendar" element={<Calendar />} />
-            <Route path="/booking" element={<Blank />} />
+            <Route path="/booking" element={<Booking />} />
             <Route path="/services" element={<Blank />} />
             <Route path="/workers" element={<Blank />} />
             <Route path="/statistics" element={<Blank />} />

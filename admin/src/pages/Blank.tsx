@@ -1,6 +1,6 @@
 import PageBreadcrumb from "../components/common/PageBreadCrumb";
 import PageMeta from "../components/common/PageMeta";
-import { Table, TableBody } from "../components/ui/table";
+import BasicTableOne from "../components/tables/BasicTables/BasicTableOne";
 
 export default function Blank() {
   return (
@@ -11,13 +11,7 @@ export default function Blank() {
       />
       <PageBreadcrumb pageTitle="Rezerwacje" />
       <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
-        <div className="mx-auto w-full max-w-[630px] text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400 sm:text-base">
-            <Table>
-              <TableBody>test</TableBody>
-            </Table>
-          </p>
-        </div>
+        <BasicTableOne />
       </div>
     </div>
   );
