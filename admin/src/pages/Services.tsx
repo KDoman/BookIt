@@ -1,6 +1,6 @@
 import PageBreadcrumb from "../components/common/PageBreadCrumb";
 import PageMeta from "../components/common/PageMeta";
-import ServicesTable from "../components/tables/ServicesTable";
+import ServicesTable from "../components/ServicesTable";
 
 export default function Services() {
   return (
