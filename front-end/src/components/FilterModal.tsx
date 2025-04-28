@@ -39,7 +39,6 @@ export default function FilterModal({
     dispatch(setCityFilter(undefined));
     dispatch(setDateFilter(undefined));
     setFiltersOnClick();
-    onOpenChange();
   };
 
   return (
