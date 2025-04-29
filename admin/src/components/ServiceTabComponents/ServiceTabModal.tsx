@@ -1,5 +1,6 @@
 import Checkbox from "../form/input/Checkbox";
 import Badge from "../ui/badge/Badge";
+import Button from "../ui/button/Button";
 import { Modal } from "../ui/modal";
 import { Service } from "./ServicesTab";
 
@@ -10,6 +11,7 @@ export const ServiceTabModal = ({
   serviceArray,
   isOpen,
   closeModal,
+  deleteService,
 }: {
   editedService: Service | null;
   setEditedService: (arg: Service) => void;
@@ -17,6 +19,7 @@ export const ServiceTabModal = ({
   serviceArray: Service[];
   isOpen: boolean;
   closeModal: () => void;
+  deleteService: (arg: string | undefined) => void;
 }) => {
   return (
     <Modal
@@ -115,33 +118,41 @@ export const ServiceTabModal = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-3 mt-6 modal-footer sm:justify-end">
-          <button
-            onClick={closeModal}
-            type="button"
-            className="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] sm:w-auto"
+        <div className="flex items-center gap-3 mt-6 modal-footer sm:justify-end  ">
+          <Button
+            className="h-11 bg-red-300 hover:bg-red-400"
+            onClick={() => deleteService(editedService?.id)}
           >
-            Zamknij
-          </button>
-          <button
-            type="button"
-            className="btn btn-success btn-update-event flex w-full justify-center rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 sm:w-auto"
-            onClick={() => {
-              if (editedService)
-                setServiceArray(
-                  serviceArray.map((service: Service) => {
-                    if (service.id === editedService.id) {
-                      return editedService;
-                    } else {
-                      return service;
-                    }
-                  })
-                );
-              closeModal();
-            }}
-          >
-            Zapisz
-          </button>
+            <p className="text-black">Usuń</p>
+          </Button>
+          <div className="flex gap-4 w-full justify-between">
+            <button
+              onClick={closeModal}
+              type="button"
+              className="flex w-full justify-center rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] sm:w-auto"
+            >
+              Zamknij
+            </button>
+            <button
+              type="button"
+              className="btn btn-success btn-update-event flex w-full justify-center rounded-lg bg-brand-500 px-4 py-2.5 text-sm font-medium text-white hover:bg-brand-600 sm:w-auto"
+              onClick={() => {
+                if (editedService)
+                  setServiceArray(
+                    serviceArray.map((service: Service) => {
+                      if (service.id === editedService.id) {
+                        return editedService;
+                      } else {
+                        return service;
+                      }
+                    })
+                  );
+                closeModal();
+              }}
+            >
+              Zapisz
+            </button>
+          </div>
         </div>
       </div>
     </Modal>

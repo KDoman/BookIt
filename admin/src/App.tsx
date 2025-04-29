@@ -10,6 +10,7 @@ import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
 import Booking from "./pages/Booking";
 import Services from "./pages/Services";
+import { Workers } from "./pages/Workers";
 
 export default function App() {
   return (
@@ -26,7 +27,7 @@ export default function App() {
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/workers" element={<Blank />} />
+            <Route path="/workers" element={<Workers />} />
             <Route path="/statistics" element={<Blank />} />
           </Route>
 

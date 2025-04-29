@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../ui/button/Button";
 import { useModal } from "../../hooks/useModal";
 import { ServiceTabModal } from "./ServiceTabModal";
-import { ServiceMainTable } from "./ServicemainTable";
+import { ServiceMainTable } from "./ServiceMainTable";
 
 export interface Service {
   id: string;
@@ -58,6 +58,11 @@ export default function ServiceTab() {
   const [editedService, setEditedService] = useState<Service | null>(null);
   const { isOpen, openModal, closeModal } = useModal();
 
+  const deleteService = (id: string | undefined) => {
+    setServiceArray([...serviceArray.filter((service) => service.id !== id)]);
+    closeModal();
+  };
+
   return (
     <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
       <div className="max-w-full overflow-x-auto ">
@@ -80,6 +85,7 @@ export default function ServiceTab() {
         >
           Zapisz
         </Button>
+        <Button variant="outline">Dodaj</Button>
         <ServiceTabModal
           isOpen={isOpen}
           closeModal={closeModal}
@@ -87,6 +93,7 @@ export default function ServiceTab() {
           serviceArray={serviceArray}
           setEditedService={setEditedService}
           setServiceArray={setServiceArray}
+          deleteService={() => deleteService(editedService?.id)}
         />
       </div>
     </div>
