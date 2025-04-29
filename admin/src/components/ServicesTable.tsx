@@ -5,6 +5,7 @@ import { PencilIcon } from "../icons";
 import Button from "./ui/button/Button";
 import { Modal } from "./ui/modal";
 import { useModal } from "../hooks/useModal";
+import Badge from "./ui/badge/Badge";
 
 interface Service {
   id: string;
@@ -58,21 +59,7 @@ export default function ServicesTable() {
       isActive: false,
     },
   ]);
-  const [editedService, setEditedService] = useState<Service | undefined>(
-    undefined
-  );
-
-  const updateServiceArray = (id: string) => {
-    setServiceArray(
-      serviceArray.map((service) => {
-        if (service.id === id) {
-          return { ...service, isChecked: !service.isActive };
-        } else {
-          return service;
-        }
-      })
-    );
-  };
+  const [editedService, setEditedService] = useState<Service | null>(null);
 
   return (
     <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
@@ -118,12 +105,9 @@ export default function ServicesTable() {
             {serviceArray.map((order) => (
               <TableRow key={order.id}>
                 <TableCell className="px-5 py-4 sm:px-6 text-start">
-                  <Checkbox
-                    checked={order.isActive}
-                    onChange={() => {
-                      updateServiceArray(order.id);
-                    }}
-                  />
+                  <Badge size="sm" color={order.isActive ? "success" : "error"}>
+                    {order.isActive ? "Włączone" : "Wyłączone"}
+                  </Badge>
                 </TableCell>
                 <TableCell className="px-5 py-4 sm:px-6 text-start">
                   <div className="flex items-center gap-3">
@@ -169,7 +153,19 @@ export default function ServicesTable() {
             ))}
           </TableBody>
         </Table>
-        <Button size="sm" className="w-[200px] mx-5 my-4">
+        <Button
+          size="sm"
+          className="w-[200px] mx-5 my-4"
+          onClick={() => {
+            /*
+            //
+            // TUTAJ BĘDZIE ZAPISYWANIE ZMIAN NA BACK-ENDZIE (SERVICE ARRAY)
+            //
+            */
+
+            console.log("WYSYŁANIE DO SERWERA LISTY ", serviceArray);
+          }}
+        >
           Zapisz
         </Button>
         <Modal
@@ -192,6 +188,16 @@ export default function ServicesTable() {
                   id="event-title"
                   type="text"
                   defaultValue={editedService?.service.name}
+                  onChange={(e) =>
+                    editedService &&
+                    setEditedService({
+                      ...editedService,
+                      service: {
+                        ...editedService?.service,
+                        name: e.target.value,
+                      },
+                    })
+                  }
                   className="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
                 />
               </div>
@@ -203,6 +209,16 @@ export default function ServicesTable() {
                   id="event-title"
                   type="number"
                   defaultValue={editedService?.service.price}
+                  onChange={(e) =>
+                    editedService &&
+                    setEditedService({
+                      ...editedService,
+                      service: {
+                        ...editedService?.service,
+                        price: Number(e.target.value),
+                      },
+                    })
+                  }
                   className="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
                 />
               </div>
@@ -225,6 +241,25 @@ export default function ServicesTable() {
                     })
                   }
                   className="dark:bg-dark-900 h-11 w-full rounded-lg border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-theme-xs placeholder:text-gray-400 focus:border-brand-300 focus:outline-hidden focus:ring-3 focus:ring-brand-500/10 dark:border-gray-700 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30 dark:focus:border-brand-800"
+                />
+              </div>
+              <div className="flex gap-4">
+                <Badge
+                  size="sm"
+                  color={editedService?.isActive ? "success" : "error"}
+                >
+                  {editedService?.isActive ? "Włączony" : "Wyłączony"}
+                </Badge>
+                <Checkbox
+                  id="checkbox_active"
+                  checked={!!editedService?.isActive}
+                  onChange={() =>
+                    editedService &&
+                    setEditedService({
+                      ...editedService,
+                      isActive: !editedService?.isActive,
+                    })
+                  }
                 />
               </div>
             </div>
