@@ -3,6 +3,7 @@ import Button from "../ui/button/Button";
 import { useModal } from "../../hooks/useModal";
 import { ServiceTabModal } from "./ServiceTabModal";
 import { ServiceMainTable } from "./ServiceMainTable";
+import { AddServiceModal } from "./AddServiceModal";
 
 export interface Service {
   id: string;
@@ -13,8 +14,6 @@ export interface Service {
   };
   isActive: boolean;
 }
-
-// Define the table data using the interface
 
 export default function ServiceTab() {
   const [serviceArray, setServiceArray] = useState<Service[]>([
@@ -56,11 +55,21 @@ export default function ServiceTab() {
     },
   ]);
   const [editedService, setEditedService] = useState<Service | null>(null);
-  const { isOpen, openModal, closeModal } = useModal();
+  const {
+    isOpen: isEditModalOpen,
+    openModal: openEditModal,
+    closeModal: closeEditModal,
+  } = useModal();
+
+  const {
+    isOpen: isAddModalOpen,
+    openModal: openAddModal,
+    closeModal: closeAddModal,
+  } = useModal();
 
   const deleteService = (id: string | undefined) => {
     setServiceArray([...serviceArray.filter((service) => service.id !== id)]);
-    closeModal();
+    closeEditModal();
   };
 
   return (
@@ -68,7 +77,7 @@ export default function ServiceTab() {
       <div className="max-w-full overflow-x-auto ">
         <ServiceMainTable
           serviceArray={serviceArray}
-          openModal={openModal}
+          openModal={openEditModal}
           setEditedService={setEditedService}
         />
         <Button
@@ -85,10 +94,18 @@ export default function ServiceTab() {
         >
           Zapisz
         </Button>
-        <Button variant="outline">Dodaj</Button>
+        <Button variant="outline" onClick={openAddModal}>
+          Dodaj
+        </Button>
+        <AddServiceModal
+          isOpen={isAddModalOpen}
+          closeModal={closeAddModal}
+          setServiceArray={setServiceArray}
+          serviceArray={serviceArray}
+        />
         <ServiceTabModal
-          isOpen={isOpen}
-          closeModal={closeModal}
+          isOpen={isEditModalOpen}
+          closeModal={closeEditModal}
           editedService={editedService}
           serviceArray={serviceArray}
           setEditedService={setEditedService}
