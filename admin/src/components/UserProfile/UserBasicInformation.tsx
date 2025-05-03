@@ -1,9 +1,16 @@
+import { Dispatch, SetStateAction } from "react";
 import { useModal } from "../../hooks/useModal";
+import { FakeAccount } from "../../pages/UserProfile";
 import { UserBasicInformationModal } from "./UserBasicInformationModal";
-
 import { UserInfoBox } from "./UserInfoBox";
 
-export default function UserBasicInformation() {
+export default function UserBasicInformation({
+  fakeAccount,
+  setFakeAccount,
+}: {
+  fakeAccount: FakeAccount;
+  setFakeAccount: Dispatch<SetStateAction<FakeAccount>>;
+}) {
   const { isOpen, openModal, closeModal } = useModal();
 
   const handleSave = () => {
@@ -21,10 +28,27 @@ export default function UserBasicInformation() {
           </h4>
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-7 2xl:gap-x-32">
-            <UserInfoBox label="Nazwa firmy">BarberKing</UserInfoBox>
-            <UserInfoBox label="Adres email">barberking@gmail.com</UserInfoBox>
-            <UserInfoBox label="Strona internetowa">example.com</UserInfoBox>
-            <UserInfoBox label="Telefon">+48 111 111 111</UserInfoBox>
+            <div>
+              <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">
+                Logo firmy
+              </p>
+              <img
+                src={fakeAccount.companyLogo}
+                className="rounded-lg max-w-10"
+              />
+            </div>
+            <UserInfoBox label="Nazwa firmy">
+              {fakeAccount.companyName}
+            </UserInfoBox>
+            <UserInfoBox label="Adres email">
+              {fakeAccount.addressEmail}
+            </UserInfoBox>
+            <UserInfoBox label="Strona internetowa">
+              {fakeAccount.companyWebsite}
+            </UserInfoBox>
+            <UserInfoBox label="Telefon">
+              {fakeAccount.companyPhone}
+            </UserInfoBox>
             <UserInfoBox label="Profile społecznościowe">
               <div className="flex gap-4">
                 <div className="flex flex-col items-end">
@@ -34,10 +58,10 @@ export default function UserBasicInformation() {
                   <p>Linkedin:</p>
                 </div>
                 <div>
-                  <p> Instagram link</p>
-                  <p> Facebook link</p>
-                  <p> X link</p>
-                  <p> Linkedin link</p>
+                  <p> {fakeAccount.companySocialLinks.instagram}</p>
+                  <p> {fakeAccount.companySocialLinks.facebook}</p>
+                  <p> {fakeAccount.companySocialLinks.x}</p>
+                  <p> {fakeAccount.companySocialLinks.linkedin}</p>
                 </div>
               </div>
             </UserInfoBox>
@@ -70,6 +94,8 @@ export default function UserBasicInformation() {
         isOpen={isOpen}
         closeModal={closeModal}
         handleSave={handleSave}
+        setFakeAccount={setFakeAccount}
+        fakeAccount={fakeAccount}
       />
     </div>
   );
