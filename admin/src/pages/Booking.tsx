@@ -1,6 +1,6 @@
 import PageBreadcrumb from "../components/common/PageBreadCrumb";
 import PageMeta from "../components/common/PageMeta";
-import ReservationTable from "../components/ReservasionTable";
+import ReservationTable from "../components/ReservationTabComponents/ReservasionTable";
 
 export default function Booking() {
   return (

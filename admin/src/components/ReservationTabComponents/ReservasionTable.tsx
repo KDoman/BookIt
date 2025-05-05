@@ -1,5 +1,11 @@
-import Badge from "./ui/badge/Badge";
-import { Table, TableBody, TableCell, TableHeader, TableRow } from "./ui/table";
+import Badge from "../ui/badge/Badge";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 
 interface Order {
   id: number;
