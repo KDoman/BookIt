@@ -1,6 +1,6 @@
 import PageBreadcrumb from "../components/common/PageBreadCrumb";
 import UserBasicInformation from "../components/UserProfile/UserBasicInformation";
-import FAKE_LOGO from "../../public/favicon.png";
+import FAKE_LOGO from "/favicon.png";
 import UserAddressInformation from "../components/UserProfile/UserAddressInformation";
 import { useState } from "react";
 
