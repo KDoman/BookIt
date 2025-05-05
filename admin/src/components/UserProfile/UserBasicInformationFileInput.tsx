@@ -1,7 +1,4 @@
-import { useState } from "react";
-
 export const UserBasicInformationFileInput = () => {
-  const [file, setFile] = useState(undefined);
   return (
     <div className="flex items-center justify-center col-span-full">
       <label
