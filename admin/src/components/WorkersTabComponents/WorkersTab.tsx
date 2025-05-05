@@ -14,7 +14,7 @@ import { WorkersTabModal } from "./WorkersTabModal";
 import { AddWorkerModal } from "./AddWorkerModal";
 
 export interface Worker {
-  id: number;
+  id: string;
   name: string;
   schedule: any;
   isActive: boolean;
@@ -25,7 +25,7 @@ export interface Worker {
 // Define the table data using the interface
 const tableData: Worker[] = [
   {
-    id: 1,
+    id: `id_${Math.floor(Math.random() * 100000)}`,
     name: "Patryk",
     schedule: {},
     isActive: true,
@@ -33,7 +33,7 @@ const tableData: Worker[] = [
     reviewAverage: 12,
   },
   {
-    id: 2,
+    id: `id_${Math.floor(Math.random() * 100000)}`,
     name: "Daria",
     schedule: {},
     isActive: true,
@@ -41,7 +41,7 @@ const tableData: Worker[] = [
     reviewAverage: 12,
   },
   {
-    id: 3,
+    id: `id_${Math.floor(Math.random() * 100000)}`,
     name: "Olek",
     schedule: {},
     isActive: false,
@@ -49,7 +49,7 @@ const tableData: Worker[] = [
     reviewAverage: 3,
   },
   {
-    id: 4,
+    id: `id_${Math.floor(Math.random() * 100000)}`,
     name: "Kacper",
     schedule: {},
     isActive: true,
@@ -165,6 +165,8 @@ export default function WorkersTab() {
         <AddWorkerModal
           isOpen={addWorkerModalisOpen}
           closeModal={addWorkerModalcloseModal}
+          setWorkersArray={setWorkersArray}
+          workersArray={workersArray}
         />
         <WorkersTabModal
           isOpen={isOpen}
