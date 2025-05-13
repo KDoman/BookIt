@@ -2,21 +2,17 @@ import { motion } from "framer-motion";
 import barber_image from "../assets/barber.avif";
 import nails_image from "../assets/nails.avif";
 import { useEffect, useState } from "react";
-import { AutocompleteInput } from "./AutocompleteInput";
 import { Button } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
 
 const images = [barber_image, nails_image];
 
 export const TextBookIt = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const service = useSelector((state: RootState) => state.inputValue.value);
   const navigate = useNavigate();
 
   function onButtonClick() {
-    navigate(service ? `/search/${service}` : "/search/all");
+    navigate("/search/all");
   }
 
   useEffect(() => {
@@ -177,13 +173,15 @@ export const TextBookIt = () => {
           Rezerwuj wygodnie
         </motion.h2>
       </div>
-      <motion.div className=" absolute bottom-16 z-20 w-full">
-        <div className="max-w-[200px] sm:max-w-[400px] mx-auto">
-          <AutocompleteInput />
-          <Button onPress={onButtonClick} className=" mx-auto mt-8 block">
-            Szukaj
-          </Button>
-        </div>
+      <motion.div
+        className=" absolute bottom-44 z-20 w-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.8 }}
+      >
+        <Button onPress={onButtonClick} className=" mx-auto block rounded-sm">
+          Rozpocznij!
+        </Button>
       </motion.div>
     </div>
   );

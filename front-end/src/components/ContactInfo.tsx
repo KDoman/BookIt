@@ -26,7 +26,7 @@ const InfoCard = ({
       transition={{ duration: 1, delay }}
       viewport={{ margin: "-200px", once: true }}
     >
-      <div className="max-w-12 bg-[#222] p-1 rounded-md">
+      <div className="max-w-12 bg-[#222] p-1 rounded-">
         <img src={img} />
       </div>
       <div className="min-h-24 flex flex-col justify-between">

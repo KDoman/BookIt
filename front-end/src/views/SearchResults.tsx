@@ -1,56 +1,35 @@
 import { LayoutBox } from "../components/LayoutBox";
-import { AutocompleteInput } from "../components/AutocompleteInput";
-import FilterModal from "../components/FilterModal";
+import { SearchedServices } from "../components/SearchedServices.js";
+import { SearchFilters } from "../components/SearchFilters.js";
 import { servicesFakeData } from "../data/servicesFakeData.js";
-import { ServiceCard } from "../components/ServiceCard.js";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store.js";
-import { useEffect, useState } from "react";
+import { useWindowWidth } from "../hooks/useWindowWidth.js";
 
 export const SearchResults = () => {
-  const [filteredArray, setFilteredArray] = useState(servicesFakeData);
+  const windowSize = useWindowWidth();
 
-  const inputValue = useSelector((state: RootState) => {
-    return state.inputValue.value;
-  });
-
-  const searchFilter = useSelector((state: RootState) => {
-    return state.searchFilter;
-  });
-
-  useEffect(() => {
-    const filterArray = servicesFakeData.filter(
-      (data) => data.type === inputValue
-    );
-    if (inputValue) {
-      setFilteredArray(filterArray);
-    }
-  }, []);
-
-  const handleFilterClick = () => {
-    const filtered = servicesFakeData.filter(
-      (item) => item.type === inputValue
-    );
-    const filterByCity =
-      searchFilter.city || searchFilter.date
-        ? filtered.filter((service) => service.city === searchFilter.city)
-        : filtered;
-    setFilteredArray(filterByCity);
-  };
-
+  const isMapHidden = windowSize > 639;
   return (
-    <LayoutBox>
-      <>
-        <div className="flex flex-col gap-2 py-2 mx-5">
-          <AutocompleteInput />
-          <FilterModal setFilteredArray={handleFilterClick} />
-          <div className="flex flex-wrap gap-5 justify-center">
-            {filteredArray.map((data) => (
-              <ServiceCard key={data.id} id={data.id} data={data} />
-            ))}
+    <>
+      <LayoutBox>
+        <div className="grid grid-cols-7 grid-rows-1 gap-4 my-2">
+          <div className="col-span-7">
+            <SearchFilters />
           </div>
+
+          <div
+            className={`row-span-4 row-start-2 bg-red-100  ${
+              isMapHidden ? "col-span-3 " : "col-span-7"
+            }`}
+          >
+            <SearchedServices items={servicesFakeData} />
+          </div>
+          {isMapHidden && (
+            <div className="col-span-4 row-span-4 col-start-4 row-start-2">
+              3
+            </div>
+          )}
         </div>
-      </>
-    </LayoutBox>
+      </LayoutBox>
+    </>
   );
 };

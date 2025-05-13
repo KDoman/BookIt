@@ -9,7 +9,7 @@ export const LayoutBox = ({
 }) => {
   return (
     <div className={`flex justify-center ${className}`}>
-      <div className="max-w-[970px] w-full ">{children}</div>
+      <div className="max-w-[1400px] w-full mx-2">{children}</div>
     </div>
   );
 };

@@ -12,14 +12,28 @@ import {
 } from "../ui/table";
 import { WorkersTabModal } from "./WorkersTabModal";
 import { AddWorkerModal } from "./AddWorkerModal";
+import { WorkerSchedule } from "./WorkerSchedule";
 
 export interface Worker {
   id: string;
   name: string;
-  schedule: any;
+  schedule: WorkingHours[];
   isActive: boolean;
   reviewNumber: number;
   reviewAverage: number;
+}
+
+export interface WorkingHours {
+  id: string;
+  hours: number;
+}
+
+export interface ScheduleVisit {
+  id: string;
+  workerId: string;
+  date: string;
+  time: string;
+  service: string;
 }
 
 // Define the table data using the interface
@@ -64,6 +78,11 @@ export default function WorkersTab() {
     closeModal: addWorkerModalcloseModal,
     openModal: addWorkerModalopenModal,
   } = useModal();
+  const {
+    isOpen: isScheduleModalOpen,
+    closeModal: closeScheduleModal,
+    openModal: openScheduleModal,
+  } = useModal();
   const { isOpen, closeModal, openModal } = useModal();
   const [editedWorker, setEditedWorker] = useState<Worker>(tableData[0]);
   const [workersArray, setWorkersArray] = useState<Worker[]>(tableData);
@@ -73,10 +92,7 @@ export default function WorkersTab() {
         <Table>
           <TableHeader className="border-b border-gray-100 dark:border-white/[0.05]">
             <TableRow>
-              <TableCell
-                isHeader
-                className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400"
-              >
+              <TableCell className="px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400">
                 Status
               </TableCell>
               <TableCell
@@ -130,7 +146,14 @@ export default function WorkersTab() {
                   </div>
                 </TableCell>
                 <TableCell className="px-4 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
-                  <Button className="hover:bg-brand-500" variant="outline">
+                  <Button
+                    className="hover:bg-brand-500"
+                    variant="outline"
+                    onClick={() => {
+                      openScheduleModal();
+                      setEditedWorker(worker);
+                    }}
+                  >
                     Ustaw grafik
                   </Button>
                 </TableCell>
@@ -162,6 +185,11 @@ export default function WorkersTab() {
         <Button variant="outline" onClick={addWorkerModalopenModal}>
           Dodaj
         </Button>
+        <WorkerSchedule
+          isOpen={isScheduleModalOpen}
+          closeModal={closeScheduleModal}
+          editedWorker={editedWorker}
+        />
         <AddWorkerModal
           isOpen={addWorkerModalisOpen}
           closeModal={addWorkerModalcloseModal}

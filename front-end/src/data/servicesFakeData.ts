@@ -9,6 +9,7 @@ export interface servicesFakeData {
   phones: string[];
   services: service[];
   staff: worker[];
+  images: string[];
 }
 
 export interface service {
@@ -21,6 +22,12 @@ export interface worker {
   id: string;
   name: string;
   image: string;
+}
+
+export interface WorkingHours {
+  id: string;
+  date: string;
+  time: string;
 }
 
 export const servicesFakeData: servicesFakeData[] = [
@@ -43,6 +50,7 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
   {
     id: "2",
@@ -62,6 +70,7 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
   {
     id: "3",
@@ -81,6 +90,7 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
   {
     id: "4",
@@ -100,6 +110,7 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
   {
     id: "5",
@@ -119,6 +130,7 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
   {
     id: "6",
@@ -138,6 +150,7 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
   {
     id: "7",
@@ -157,6 +170,7 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
   {
     id: "8",
@@ -176,6 +190,7 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
   {
     id: "9",
@@ -195,6 +210,7 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
   {
     id: "10",
@@ -214,6 +230,7 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
   {
     id: "11",
@@ -233,5 +250,6 @@ export const servicesFakeData: servicesFakeData[] = [
       { name: "Patryk", image: "imageURL", id: "patryk" },
       { name: "Daria", image: "imageURL", id: "daria" },
     ],
+    images: ["https://example.com/photo.jpg"],
   },
 ];

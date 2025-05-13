@@ -1,7 +1,12 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { HashRouter, useNavigate, useParams } from "react-router-dom";
 import LEFT_ARROW from "../assets/Left_arrow.svg";
 import { LayoutBox } from "./LayoutBox";
-import { servicesFakeData, service, worker } from "../data/servicesFakeData";
+import {
+  servicesFakeData,
+  service,
+  worker,
+  WorkingHours,
+} from "../data/servicesFakeData";
 import { Avatar, Button, Calendar } from "@heroui/react";
 import { firstLettersUppercase } from "../helpers/firstLettersUppercase";
 import PHONE_SVG from "../assets/phone.svg";
@@ -22,6 +27,51 @@ export const CardModal = () => {
 
   const [selectedPerson, setSelectedPerson] = useState<worker | null>(null);
   const [selectedService, setSelectedService] = useState<service | null>(null);
+  const [selectedDate, setSelectedDate] = useState<boolean>(false);
+  const [selectedHourButton, setSelectedHourButton] =
+    useState<WorkingHours | null>(null);
+  const [availableHours, setAvailableHours] = useState<WorkingHours[] | null>([
+    {
+      id: "#_2",
+      date: "2025/5/18",
+      time: "16:30",
+    },
+    {
+      id: "#_3",
+      date: "2025/5/18",
+      time: "15:30",
+    },
+    {
+      id: "#_21",
+      date: "2025/5/18",
+      time: "14:30",
+    },
+    {
+      id: "#_321",
+      date: "2025/5/18",
+      time: "13:00",
+    },
+    {
+      id: "#_3221",
+      date: "2025/5/18",
+      time: "12:30",
+    },
+    {
+      id: "#_32131",
+      date: "2025/5/18",
+      time: "11:30",
+    },
+    {
+      id: "#_31321",
+      date: "2025/5/18",
+      time: "10:00",
+    },
+    {
+      id: "#_32132",
+      date: "2025/5/18",
+      time: "9:30",
+    },
+  ]);
 
   const setPerson = (e: worker) => {
     setSelectedPerson(e);
@@ -123,11 +173,27 @@ export const CardModal = () => {
             </div>
             <Calendar
               color="foreground"
-              className="mx-auto"
+              className="mx-auto my-4"
               isDisabled={!selectedPerson || !selectedService}
-              onChange={(e) => console.log(`${e.year} / ${e.month} / ${e.day}`)}
+              onChange={(e) => {
+                console.log(`${e.year}/${e.month}/${e.day}`);
+                setSelectedDate(true);
+              }}
               minValue={getCurrentDate()}
             />
+            <div className="flex gap-4 flex-wrap justify-center">
+              {selectedDate &&
+                availableHours?.map((hour) => (
+                  <Button
+                    onPress={() => setSelectedHourButton(hour)}
+                    variant={`${
+                      hour.id === selectedHourButton?.id ? "solid" : "bordered"
+                    }`}
+                  >
+                    {hour.time}
+                  </Button>
+                ))}
+            </div>
             <Button className="mx-auto block min-w-full">Zarezerwuj</Button>
           </div>
         </div>
